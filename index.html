@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <link rel="icon" href="avatar.png" type="image/png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AppSabio — AppSheet Developer</title>
+  <title>AppSabio — Разработчик AppSheet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <style>
@@ -82,26 +83,6 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
-
-    .lang-switch {
-      display: flex;
-      gap: 8px;
-    }
-    .lang-btn {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 4px 12px;
-      border-radius: 6px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .lang-btn.active, .lang-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
 
     /* HERO */
     .hero {
@@ -262,6 +243,13 @@
       font-size: 1.4rem;
       color: #fff;
       flex-shrink: 0;
+      overflow: hidden;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
     }
     .avatar-info strong {
       font-family: 'Syne', sans-serif;
@@ -289,12 +277,21 @@
       font-weight: 700;
       font-size: 1.5rem;
       color: var(--accent);
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stat-num img {
+      width: 22px;
+      height: 16px;
+      object-fit: cover;
+      border-radius: 2px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
     }
     .stat-label {
       color: var(--muted);
       font-size: 0.78rem;
-      margin-top: 2px;
+      margin-top: 6px;
     }
 
     .tech-row {
@@ -591,6 +588,10 @@
       font-size: 0.85rem;
       line-height: 1.6;
     }
+    .step p strong {
+      color: var(--gold);
+      font-weight: 500;
+    }
 
     /* PAYMENT */
     .payment-row {
@@ -702,6 +703,9 @@
     }
     .contact-item span {
       font-size: 0.92rem;
+    }
+    .contact-item span.gold-text {
+      color: var(--gold);
     }
 
     /* FOOTER */
@@ -867,9 +871,6 @@
       .project-card { padding: 16px 16px 20px; }
       .price-amount { font-size: 1.9rem; }
     }
-
-    /* HIDDEN LANG CONTENT */
-    [data-en] { display: none; }
   </style>
 </head>
 <body>
@@ -878,15 +879,11 @@
   <nav>
     <div class="logo">AppSabio</div>
     <ul class="nav-links">
-      <li><a href="#projects" data-ru="Проекты" data-en-text="Projects">Проекты</a></li>
-      <li><a href="#services" data-ru="Услуги" data-en-text="Services">Услуги</a></li>
-      <li><a href="#pricing" data-ru="Тарифы" data-en-text="Pricing">Тарифы</a></li>
-      <li><a href="#contact" data-ru="Контакт" data-en-text="Contact">Контакт</a></li>
+      <li><a href="#projects">Проекты</a></li>
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#pricing">Тарифы</a></li>
+      <li><a href="#contact">Контакт</a></li>
     </ul>
-    <div class="lang-switch">
-      <button class="lang-btn active" onclick="setLang('ru')">RU</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
-    </div>
   </nav>
 
   <!-- HERO -->
@@ -896,67 +893,59 @@
     <div class="hero-inner">
       <div>
         <div class="hero-tag">
-          <span class="lang-ru">AppSheet Developer · Доступен для заказов</span>
-          <span class="lang-en" style="display:none">AppSheet Developer · Available for projects</span>
+          <span>AppSheet-разработчик · Доступен для заказов</span>
         </div>
         <h1>
-          <span class="lang-ru">Автоматизирую<br>ваш бизнес<br>без <span>кода</span></span>
-          <span class="lang-en" style="display:none">Automating<br>your business<br>without <span>code</span></span>
+          Автоматизирую<br>ваш бизнес<br>без <span>кода</span>
         </h1>
-        <p class="hero-sub lang-ru">Создаю приложения на AppSheet — от CRM и складского учёта до сложных бизнес-процессов с ролями доступа и автоматизацией.</p>
-        <p class="hero-sub lang-en" style="display:none">I build AppSheet applications — from CRM and inventory systems to complex business workflows with role-based access and automation.</p>
+        <p class="hero-sub">Создаю приложения на AppSheet, которые избавляют бизнес от хаоса в Excel и переводят учёт на нормальные рельсы — быстро, без программистов и сложных интеграций.</p>
         <div class="cta-row">
           <a href="#contact" class="btn btn-primary">
-            <span class="lang-ru">Обсудить проект</span>
-            <span class="lang-en" style="display:none">Discuss a project</span>
+            <span>Обсудить проект</span>
             →
           </a>
           <a href="#projects" class="btn btn-ghost">
-            <span class="lang-ru">Портфолио</span>
-            <span class="lang-en" style="display:none">Portfolio</span>
+            <span>Портфолио</span>
           </a>
         </div>
       </div>
 
       <div class="hero-card fade-in">
         <div class="avatar-row">
-          <div class="avatar">A</div>
+          <div class="avatar"><img src="avatar.png" alt="Артём"></div>
           <div class="avatar-info">
             <strong>Артём</strong>
-            <span>AppSheet Specialist</span>
+            <span>AppSheet и No-code разработчик</span>
           </div>
         </div>
         <div class="stat-grid">
         <div class="stat">
             <span class="stat-num">
-                <img src="ua.png" alt="🇺🇦">
-                <img src="tr.png" alt="🇹🇷">
-                <img src="es.png" alt="🇪🇸">
-                <img src="nl.png" alt="🇳🇱">
+                <img src="ua.png" alt="Украина">
+                <img src="tr.png" alt="Турция">
+                <img src="es.png" alt="Испания">
+                <img src="nl.png" alt="Нидерланды">
             </span>
-            <div class="stat-label lang-ru">Клиенты из</div>
-            <div class="stat-label lang-en" style="display:none">Clients from</div>
+            <div class="stat-label">Клиенты из</div>
         </div>
         <div class="stat">
-            <span class="stat-num" style="font-size:1rem;">RU · EN · ES · UA</span>
-            <div class="stat-label lang-ru">Языки работы</div>
-            <div class="stat-label lang-en" style="display:none">Working languages</div>
+            <span class="stat-num" style="font-size:1rem;">RU · UA · EN · ES</span>
+            <div class="stat-label">Языки работы</div>
         </div>
         <div class="stat">
-            <span class="stat-num">No-code</span>
-            <div class="stat-label lang-ru">только AppSheet</div>
-            <div class="stat-label lang-en" style="display:none">AppSheet only</div>
+            <span class="stat-num" style="font-size:1rem;">CRM / ERP на заказ</span>
+            <div class="stat-label">На базе AppSheet & Google Sheets</div>
         </div>
         <div class="stat">
-            <span class="stat-num" style="font-size:1rem;">⚡️ Быстро</span>
-            <div class="stat-label lang-ru">Первый созвон бесплатно</div>
-            <div class="stat-label lang-en" style="display:none">First call is free</div>
+            <span class="stat-num" style="font-size:1rem;">Быстрый старт</span>
+            <div class="stat-label">Бесплатный созвон и проектирование архитектуры</div>
         </div>
         </div>
         <div class="tech-row">
           <span class="tech-tag">AppSheet</span>
           <span class="tech-tag">Google Sheets</span>
-          <span class="tech-tag">Automation</span>
+          <span class="tech-tag">Telegram-боты</span>
+          <span class="tech-tag">Автоматизация</span>
           <span class="tech-tag">No-code</span>
           <span class="tech-tag">CRM</span>
         </div>
@@ -967,35 +956,28 @@
   <!-- PROJECTS -->
   <section id="projects">
     <div class="section-inner">
-      <div class="section-label lang-ru">Портфолио</div>
-      <div class="section-label lang-en" style="display:none">Portfolio</div>
+      <div class="section-label">Портфолио</div>
       <h2>
-        <span class="lang-ru">Реальные проекты</span>
-        <span class="lang-en" style="display:none">Real projects</span>
+        <span>Реальные проекты</span>
       </h2>
-      <p class="section-desc lang-ru">Примеры рабочих приложений, которые используются прямо сейчас.</p>
-      <p class="section-desc lang-en" style="display:none">Examples of working applications that are in use right now.</p>
+      <p class="section-desc">Примеры рабочих приложений, которые используются прямо сейчас.</p>
 
       <div class="projects-grid">
         <div class="project-card fade-in">
           <div class="project-icon" style="background: rgba(79,140,255,0.1);">📊</div>
           <h3>
-            <span class="lang-ru">CRM продаж</span>
-            <span class="lang-en" style="display:none">Sales CRM</span>
+            <span>CRM продаж</span>
           </h3>
-          <p class="lang-ru">Полноценная CRM с воронкой продаж, историей клиентов, уведомлениями и отчётностью. Находится на поддержке.</p>
-          <p class="lang-en" style="display:none">Full CRM with sales pipeline, client history, automated notifications and reporting. Currently under active support.</p>
+          <p>Полноценная CRM с воронкой продаж, историей клиентов, уведомлениями и отчётностью. Находится на поддержке.</p>
           <div class="project-tags">
             <span class="project-tag">CRM</span>
-            <span class="project-tag lang-ru">Уведомления</span>
-            <span class="project-tag lang-en" style="display:none">Notifications</span>
-            <span class="project-tag lang-ru">Отчёты</span>
-            <span class="project-tag lang-en" style="display:none">Reports</span>
+            <span class="project-tag">Уведомления</span>
+            <span class="project-tag">Отчёты</span>
           </div>
           <!-- Телефон с видео -->
             <div class="phone-mockup">
                 <video 
-                src="IMG_4578.MP4"
+                src="img-4724_5pIQ4tBr.mp4"
                 autoplay
                 muted
                 loop
@@ -1007,18 +989,13 @@
         <div class="project-card fade-in">
           <div class="project-icon" style="background: rgba(240,192,96,0.1);">🔧</div>
           <h3>
-            <span class="lang-ru">Планировщик СТО</span>
-            <span class="lang-en" style="display:none">Auto Service Manager</span>
+            <span>Планировщик СТО</span>
           </h3>
-          <p class="lang-ru">Управление заказами, учёт товаров и расходов, разные уровни доступа для механиков, менеджеров и владельца.</p>
-          <p class="lang-en" style="display:none">Order management, parts and expense tracking, role-based access for mechanics, managers and owners.</p>
+          <p>Управление заказами, учёт товаров и расходов, разные уровни доступа для механиков, менеджеров и владельца.</p>
           <div class="project-tags">
-            <span class="project-tag lang-ru">Роли доступа</span>
-            <span class="project-tag lang-en" style="display:none">Role access</span>
-            <span class="project-tag lang-ru">Склад</span>
-            <span class="project-tag lang-en" style="display:none">Inventory</span>
-            <span class="project-tag lang-ru">Финансы</span>
-            <span class="project-tag lang-en" style="display:none">Finance</span>
+            <span class="project-tag">Роли доступа</span>
+            <span class="project-tag">Склад</span>
+            <span class="project-tag">Финансы</span>
           </div>
           <!-- Телефон с видео -->
             <div class="phone-mockup">
@@ -1035,23 +1012,18 @@
         <div class="project-card fade-in">
           <div class="project-icon" style="background: rgba(124,92,252,0.1);">💱</div>
           <h3>
-            <span class="lang-ru">Учёт валютных сделок</span>
-            <span class="lang-en" style="display:none">FX Trade Ledger</span>
+            <span>Дебиторка с контрагентами</span>
           </h3>
-          <p class="lang-ru">Система учёта валютных операций между контрагентами с историей сделок, балансами и автоматическим пересчётом.</p>
-          <p class="lang-en" style="display:none">Currency transaction tracking between counterparties with deal history, balances and automatic recalculation.</p>
+          <p>Система учёта операций между контрагентами с историей сделок, балансами и автоматическим пересчётом.</p>
           <div class="project-tags">
-            <span class="project-tag lang-ru">Валюта</span>
-            <span class="project-tag lang-en" style="display:none">Multi-currency</span>
-            <span class="project-tag lang-ru">Контрагенты</span>
-            <span class="project-tag lang-en" style="display:none">Counterparties</span>
-            <span class="project-tag lang-ru">Баланс</span>
-            <span class="project-tag lang-en" style="display:none">Balance</span>
+            <span class="project-tag">Валюта</span>
+            <span class="project-tag">Контрагенты</span>
+            <span class="project-tag">Баланс</span>
           </div>
           <!-- Телефон с видео -->
             <div class="phone-mockup">
                 <video 
-                src="IMG_4578.MP4"
+                src="img-4722_SI0349bi.mp4"
                 autoplay
                 muted
                 loop
@@ -1068,42 +1040,33 @@
   <!-- SERVICES -->
   <section id="services">
     <div class="section-inner">
-      <div class="section-label lang-ru">Услуги</div>
-      <div class="section-label lang-en" style="display:none">Services</div>
+      <div class="section-label">Услуги</div>
       <h2>
-        <span class="lang-ru">Чем могу помочь</span>
-        <span class="lang-en" style="display:none">What I can do</span>
+        <span>Чем могу помочь</span>
       </h2>
-      <p class="section-desc lang-ru">Работаю на трёх языках — русский, английский, испанский. С переводчиком — на любом.</p>
-      <p class="section-desc lang-en" style="display:none">Working in Russian, English and Spanish. With a translator — any language.</p>
+      <p class="section-desc">Работаю на четырёх языках — русский, украинский, английский, испанский. С переводчиком — на любом.</p>
 
       <div class="services-grid">
         <div class="service-card fade-in">
           <div class="service-num">01</div>
           <h3>
-            <span class="lang-ru">С нуля</span>
-            <span class="lang-en" style="display:none">From scratch</span>
+            <span>С нуля</span>
           </h3>
-          <p class="lang-ru">Бриф → ТЗ → разработка → сдача. Полный цикл создания приложения под ваши процессы. Предоплата 50%, остаток после сдачи.</p>
-          <p class="lang-en" style="display:none">Brief → spec → build → delivery. Full cycle development tailored to your workflow. 50% upfront, rest on delivery.</p>
+          <p>Бриф → ТЗ → разработка → сдача. Полный цикл создания приложения под ваши процессы. Предоплата 50%, остаток после сдачи.</p>
         </div>
         <div class="service-card fade-in">
           <div class="service-num">02</div>
           <h3>
-            <span class="lang-ru">Доработки</span>
-            <span class="lang-en" style="display:none">Improvements</span>
+            <span>Доработки</span>
           </h3>
-          <p class="lang-ru">Аудит существующего приложения и улучшения. Работаю почасово или по фиксированной цене после оценки задачи.</p>
-          <p class="lang-en" style="display:none">Audit of an existing app and improvements. Hourly or fixed price after task assessment.</p>
+          <p>Аудит существующего приложения и улучшения. Работаю почасово или по фиксированной цене после оценки задачи.</p>
         </div>
         <div class="service-card fade-in">
           <div class="service-num">03</div>
           <h3>
-            <span class="lang-ru">Поддержка</span>
-            <span class="lang-en" style="display:none">Support</span>
+            <span>Поддержка</span>
           </h3>
-          <p class="lang-ru">Ежемесячный абонемент — фиксированное количество часов, приоритетный ответ. Идеально для растущего бизнеса.</p>
-          <p class="lang-en" style="display:none">Monthly retainer — fixed hours, priority response. Perfect for a growing business.</p>
+          <p>Ежемесячный абонемент — фиксированное количество часов, приоритетный ответ. Идеально для растущего бизнеса.</p>
         </div>
       </div>
     </div>
@@ -1114,51 +1077,40 @@
   <!-- HOW IT WORKS -->
   <section>
     <div class="section-inner">
-      <div class="section-label lang-ru">Процесс</div>
-      <div class="section-label lang-en" style="display:none">Process</div>
+      <div class="section-label">Процесс</div>
       <h2>
-        <span class="lang-ru">Как это работает</span>
-        <span class="lang-en" style="display:none">How it works</span>
+        <span>Как это работает</span>
       </h2>
-      <p class="section-desc lang-ru">Прозрачно и без лишних слов.</p>
-      <p class="section-desc lang-en" style="display:none">Transparent and straightforward.</p>
+      <p class="section-desc">Прозрачно и без лишних слов.</p>
 
       <div class="steps">
         <div class="step fade-in">
           <div class="step-num">1</div>
           <h3>
-            <span class="lang-ru">Созвон 20-30 мин</span>
-            <span class="lang-en" style="display:none">Free call 20-30 min</span>
+            <span>Созвон 20-30 мин</span>
           </h3>
-          <p class="lang-ru">Бесплатно. Разбираемся в задаче, обсуждаем что нужно.</p>
-          <p class="lang-en" style="display:none">Free of charge. We understand the task and discuss what's needed.</p>
+          <p><strong>Бесплатно.</strong> Разбираемся в задаче, обсуждаем что нужно.</p>
         </div>
         <div class="step fade-in">
           <div class="step-num">2</div>
           <h3>
-            <span class="lang-ru">Оценка письменно</span>
-            <span class="lang-en" style="display:none">Written estimate</span>
+            <span>Оценка письменно</span>
           </h3>
-          <p class="lang-ru">Что входит, что не входит, срок и цена — всё зафиксировано.</p>
-          <p class="lang-en" style="display:none">Scope, timeline and price — all in writing before we start.</p>
+          <p>Что входит, что не входит, срок и цена — всё зафиксировано.</p>
         </div>
         <div class="step fade-in">
           <div class="step-num">3</div>
           <h3>
-            <span class="lang-ru">50% предоплата</span>
-            <span class="lang-en" style="display:none">50% upfront</span>
+            <span>50% предоплата</span>
           </h3>
-          <p class="lang-ru">Начинаем работу. Промежуточные версии для согласования.</p>
-          <p class="lang-en" style="display:none">Work begins. Intermediate versions for review.</p>
+          <p>Начинаем работу. Промежуточные версии для согласования.</p>
         </div>
         <div class="step fade-in">
           <div class="step-num">4</div>
           <h3>
-            <span class="lang-ru">Сдача + правки</span>
-            <span class="lang-en" style="display:none">Delivery + fixes</span>
+            <span>Сдача + правки</span>
           </h3>
-          <p class="lang-ru">Финальная сдача, оплата остатка. 2 недели бесплатных правок по багам.</p>
-          <p class="lang-en" style="display:none">Final delivery, remaining payment. 2 weeks of free bug fixes included.</p>
+          <p>Финальная сдача, оплата остатка. <strong>2 недели бесплатных правок</strong> по багам.</p>
         </div>
       </div>
     </div>
@@ -1169,211 +1121,130 @@
   <!-- PRICING -->
   <section id="pricing">
     <div class="section-inner">
-      <div class="section-label lang-ru">Тарифы</div>
-      <div class="section-label lang-en" style="display:none">Pricing</div>
+      <div class="section-label">Тарифы</div>
       <h2>
-        <span class="lang-ru">Проекты с нуля</span>
-        <span class="lang-en" style="display:none">New projects</span>
+        <span>Проекты с нуля</span>
       </h2>
-      <p class="section-desc lang-ru">Честные цены. Без скрытых доплат.</p>
-      <p class="section-desc lang-en" style="display:none">Fair prices. No hidden fees.</p>
+      <p class="section-desc">Честные цены. Без скрытых доплат.</p>
 
       <div class="pricing-grid" style="margin-bottom: 60px;">
         <div class="price-card fade-in">
-          <div class="price-tier">Старт / Starter</div>
+          <div class="price-tier">Старт</div>
           <div class="price-name">
-            <span class="lang-ru">Базовое приложение</span>
-            <span class="lang-en" style="display:none">Basic app</span>
+            <span>Базовое приложение</span>
           </div>
           <div class="price-amount">€250–400</div>
-          <p class="price-note lang-ru">1-2 таблицы, простая логика</p>
-          <p class="price-note lang-en" style="display:none">1-2 tables, simple logic</p>
+          <p class="price-note">1-2 таблицы, простая логика</p>
           <ul class="price-features">
             <li>
-              <span class="lang-ru">До 3 экранов/вьюшек</span>
-              <span class="lang-en" style="display:none">Up to 3 views</span>
+              <span>До 3 экранов/вьюшек</span>
             </li>
             <li>
-              <span class="lang-ru">Базовые формулы</span>
-              <span class="lang-en" style="display:none">Basic formulas</span>
+              <span>Базовые формулы</span>
             </li>
             <li>
-              <span class="lang-ru">Без автоматизации</span>
-              <span class="lang-en" style="display:none">No automation</span>
+              <span>Без автоматизации</span>
             </li>
             <li>
-              <span class="lang-ru">2 недели правок</span>
-              <span class="lang-en" style="display:none">2 weeks bug fixes</span>
+              <span>2 недели правок</span>
             </li>
           </ul>
         </div>
 
-        <div class="price-card featured fade-in" data-badge="Популярный / Popular">
-          <div class="price-tier">Бизнес / Business</div>
+        <div class="price-card featured fade-in" data-badge="Популярный">
+          <div class="price-tier">Бизнес</div>
           <div class="price-name">
-            <span class="lang-ru">Бизнес-приложение</span>
-            <span class="lang-en" style="display:none">Business app</span>
+            <span>Бизнес-приложение</span>
           </div>
           <div class="price-amount">€500–900</div>
-          <p class="price-note lang-ru">3-6 таблиц, роли, автоматизация</p>
-          <p class="price-note lang-en" style="display:none">3-6 tables, roles, automation</p>
+          <p class="price-note">3-6 таблиц, роли, автоматизация</p>
           <ul class="price-features">
             <li>
-              <span class="lang-ru">Роли доступа</span>
-              <span class="lang-en" style="display:none">Role-based access</span>
+              <span>Роли доступа</span>
             </li>
             <li>
-              <span class="lang-ru">Боты и уведомления</span>
-              <span class="lang-en" style="display:none">Bots & notifications</span>
+              <span>Боты и уведомления</span>
             </li>
             <li>
-              <span class="lang-ru">Сложные формулы</span>
-              <span class="lang-en" style="display:none">Advanced formulas</span>
+              <span>Сложные формулы</span>
             </li>
             <li>
-              <span class="lang-ru">Отчёты и дашборды</span>
-              <span class="lang-en" style="display:none">Reports & dashboards</span>
+              <span>Отчёты и дашборды</span>
             </li>
           </ul>
         </div>
 
         <div class="price-card fade-in">
-          <div class="price-tier">Про / Pro</div>
+          <div class="price-tier">Про</div>
           <div class="price-name">
-            <span class="lang-ru">Сложная система</span>
-            <span class="lang-en" style="display:none">Complex system</span>
+            <span>Сложная система</span>
           </div>
           <div class="price-amount">€1000–2000</div>
-          <p class="price-note lang-ru">Как CRM или планировщик СТО</p>
-          <p class="price-note lang-en" style="display:none">Like CRM or auto service manager</p>
+          <p class="price-note">Как CRM или планировщик СТО</p>
           <ul class="price-features">
             <li>
-              <span class="lang-ru">Сложная архитектура</span>
-              <span class="lang-en" style="display:none">Complex architecture</span>
+              <span>Сложная архитектура</span>
             </li>
             <li>
-              <span class="lang-ru">Несколько источников данных</span>
-              <span class="lang-en" style="display:none">Multiple data sources</span>
+              <span>Несколько источников данных</span>
             </li>
             <li>
-              <span class="lang-ru">Интеграции</span>
-              <span class="lang-en" style="display:none">Integrations</span>
+              <span>Интеграции</span>
             </li>
             <li>
-              <span class="lang-ru">Приоритетная поддержка</span>
-              <span class="lang-en" style="display:none">Priority support</span>
+              <span>Приоритетная поддержка</span>
             </li>
           </ul>
         </div>
       </div>
 
       <h2>
-        <span class="lang-ru">Поддержка (абонемент)</span>
-        <span class="lang-en" style="display:none">Support (retainer)</span>
+        <span>Поддержка (абонемент)</span>
       </h2>
-      <p class="section-desc lang-ru">Фиксированное количество часов в месяц. Неизрасходованные часы не переносятся.</p>
-      <p class="section-desc lang-en" style="display:none">Fixed hours per month. Unused hours do not roll over.</p>
+      <p class="section-desc">Фиксированное количество часов в месяц. Неизрасходованные часы не переносятся.</p>
 
       <div class="support-grid">
         <div class="support-card fade-in">
           <div class="support-price">€90</div>
-          <div class="support-hours lang-ru">3 часа / месяц</div>
-          <div class="support-hours lang-en" style="display:none">3 hours / month</div>
-          <h3>Mini</h3>
-          <p class="lang-ru">Мелкие правки, ответы на вопросы по работе приложения.</p>
-          <p class="lang-en" style="display:none">Minor fixes, answers to usage questions.</p>
+          <div class="support-hours">3 часа / месяц</div>
+          <h3>Мини</h3>
+          <p>Мелкие правки, ответы на вопросы по работе приложения.</p>
         </div>
         <div class="support-card fade-in">
           <div class="support-price">€160</div>
-          <div class="support-hours lang-ru">6 часов / месяц</div>
-          <div class="support-hours lang-en" style="display:none">6 hours / month</div>
-          <h3>Standard</h3>
-          <p class="lang-ru">Правки + небольшие улучшения и новые функции.</p>
-          <p class="lang-en" style="display:none">Fixes + small improvements and new features.</p>
+          <div class="support-hours">6 часов / месяц</div>
+          <h3>Стандарт</h3>
+          <p>Правки + небольшие улучшения и новые функции.</p>
         </div>
         <div class="support-card fade-in">
           <div class="support-price">€280</div>
-          <div class="support-hours lang-ru">12 часов / месяц</div>
-          <div class="support-hours lang-en" style="display:none">12 hours / month</div>
-          <h3>Active</h3>
-          <p class="lang-ru">Всё включено + приоритетный ответ + консультации.</p>
-          <p class="lang-en" style="display:none">Everything + priority response + consultations.</p>
+          <div class="support-hours">12 часов / месяц</div>
+          <h3>Актив</h3>
+          <p>Всё включено + приоритетный ответ + консультации.</p>
         </div>
       </div>
 
       <div style="margin-top: 40px;">
         <h3 style="font-family: 'Syne', sans-serif; margin-bottom: 8px;">
-          <span class="lang-ru">Доработки и аудит</span>
-          <span class="lang-en" style="display:none">Improvements & audit</span>
+          <span>Доработки и аудит</span>
         </h3>
         <p style="color: var(--muted); font-size: 0.9rem;">
-          <span class="lang-ru">Почасовая работа — €25–35/ч · Аудит приложения — €80–150 · Минимальный заказ — €60</span>
-          <span class="lang-en" style="display:none">Hourly rate — €25–35/h · App audit — €80–150 · Minimum order — €60</span>
+          <span>Почасовая работа — €25–35/ч · Аудит приложения — €80–150 · Минимальный заказ — €60</span>
         </p>
       </div>
 
       <div style="margin-top: 48px;">
-        <div class="section-label lang-ru">Оплата</div>
-        <div class="section-label lang-en" style="display:none">Payment</div>
+        <div class="section-label">Оплата</div>
         <div class="payment-row">
           <div class="pay-badge"><span class="pay-icon">💳</span> PayPal</div>
-          <div class="pay-badge"><span class="pay-icon">₿</span> Crypto (USDT / BTC)</div>
+          <div class="pay-badge"><span class="pay-icon">₿</span> Криптовалюта (USDT / BTC)</div>
           <div class="pay-badge"><span class="pay-icon">🇺🇦</span>
-            <span class="lang-ru">Украинская карта</span>
-            <span class="lang-en" style="display:none">Ukrainian card</span>
+            <span>Украинская карта</span>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-    <!-- LICENSING -->
-    <section id="licensing">
-    <div class="section-inner">
-        <div class="section-label lang-ru">Важно знать</div>
-        <div class="section-label lang-en" style="display:none">Good to know</div>
-        <h2>
-        <span class="lang-ru">До старта проекта</span>
-        <span class="lang-en" style="display:none">Before we start</span>
-        </h2>
-        <p class="section-desc lang-ru">AppSheet — сервис Google. Я настраиваю приложения, но не владею платформой и не контролирую её правила.</p>
-        <p class="section-desc lang-en" style="display:none">AppSheet is a Google service. I build apps on it, but I don't own the platform or control its rules.</p>
-
-        <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:20px;">
-
-        <div class="service-card fade-in">
-            <div style="font-size:1.5rem; margin-bottom:14px;">🟢</div>
-            <h3>
-            <span class="lang-ru">Бесплатный режим</span>
-            <span class="lang-en" style="display:none">Free mode</span>
-            </h3>
-            <p class="lang-ru">До 10 пользователей — бесплатно и без ограничений по времени. Большинству малого бизнеса этого достаточно.</p>
-            <p class="lang-en" style="display:none">Up to 10 users — free with no time limit. Enough for most small businesses.</p>
-        </div>
-
-        <div class="service-card fade-in">
-            <div style="font-size:1.5rem; margin-bottom:14px;">⚡</div>
-            <h3>
-            <span class="lang-ru">Когда нужна подписка</span>
-            <span class="lang-en" style="display:none">When you need a plan</span>
-            </h3>
-            <p class="lang-ru">Команда больше 10 человек, нужны роли доступа или штрихкоды → AppSheet Core $10/польз. Уже есть Google Workspace Business — Core уже включён.</p>
-            <p class="lang-en" style="display:none">Team over 10 people, need role access or barcodes → AppSheet Core $10/user. Already have Google Workspace Business — Core is already included.</p>
-        </div>
-
-        <div class="service-card fade-in">
-            <div style="font-size:1.5rem; margin-bottom:14px;">🔒</div>
-            <h3>
-            <span class="lang-ru">Моя ответственность</span>
-            <span class="lang-en" style="display:none">My responsibility</span>
-            </h3>
-            <p class="lang-ru">Отвечаю за архитектуру и логику приложения. Контроль числа пользователей — на стороне клиента. Переход на подписку — простой процесс, всегда помогу.</p>
-            <p class="lang-en" style="display:none">I'm responsible for architecture and app logic. User count control is on the client's side. Upgrading to a paid plan is simple — I'll always help you through it.</p>
-        </div>
-
-        </div>
-    </div>
-    </section>
 
     <div class="divider"></div>
 
@@ -1381,27 +1252,24 @@
   <section id="contact">
     <div class="contact-inner">
       <div class="contact-info">
-        <div class="section-label lang-ru">Контакт</div>
-        <div class="section-label lang-en" style="display:none">Contact</div>
+        <div class="section-label">Контакт</div>
         <h2>
-          <span class="lang-ru">Обсудим ваш проект</span>
-          <span class="lang-en" style="display:none">Let's talk about your project</span>
+          <span>Обсудим ваш проект</span>
         </h2>
-        <p class="lang-ru">Напишите в Telegram или WhatsApp. Отвечаю быстро. Первый созвон — бесплатно.</p>
-        <p class="lang-en" style="display:none">Message me on Telegram or WhatsApp. I respond quickly. First call is free.</p>
+        <p>Напишите в Telegram или WhatsApp. Отвечаю быстро. Первый созвон — бесплатно.</p>
         <div class="contact-links">
-          <a href="https://t.me/YOUR_TELEGRAM" class="contact-link">
+          <a href="https://t.me/Artttpro" class="contact-link">
             <div class="contact-link-icon tg">✈️</div>
             <div>
               <strong style="font-weight:500;">Telegram</strong>
-              <span style="color:var(--muted); font-size:0.82rem; display:block;">@YOUR_TELEGRAM</span>
+              <span style="color:var(--muted); font-size:0.82rem; display:block;">@Artttpro</span>
             </div>
           </a>
-          <a href="https://wa.me/YOUR_NUMBER" class="contact-link">
+          <a href="https://wa.me/380730452180" class="contact-link">
             <div class="contact-link-icon wa">💬</div>
             <div>
               <strong style="font-weight:500;">WhatsApp</strong>
-              <span style="color:var(--muted); font-size:0.82rem; display:block;">+XX XXX XXX XXXX</span>
+              <span style="color:var(--muted); font-size:0.82rem; display:block;">+380 73 045 2180</span>
             </div>
           </a>
         </div>
@@ -1409,19 +1277,16 @@
 
       <div class="contact-card fade-in">
         <h3>
-          <span class="lang-ru">Быстрая информация</span>
-          <span class="lang-en" style="display:none">Quick info</span>
+          <span>Быстрая информация</span>
         </h3>
         <div class="contact-item">
           <div class="contact-item-icon">🌍</div>
           <div>
             <strong>
-              <span class="lang-ru">География</span>
-              <span class="lang-en" style="display:none">Location</span>
+              <span>География</span>
             </strong>
             <span>
-              <span class="lang-ru">Испания · работаю удалённо</span>
-              <span class="lang-en" style="display:none">Spain · working remotely</span>
+              <span>Испания · работаю удалённо</span>
             </span>
           </div>
         </div>
@@ -1429,22 +1294,19 @@
           <div class="contact-item-icon">🗣️</div>
           <div>
             <strong>
-              <span class="lang-ru">Языки</span>
-              <span class="lang-en" style="display:none">Languages</span>
+              <span>Языки</span>
             </strong>
-            <span>RU · EN · ES</span>
+            <span>RU · UA · EN · ES</span>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-item-icon">⏱️</div>
           <div>
             <strong>
-              <span class="lang-ru">Ответ</span>
-              <span class="lang-en" style="display:none">Response time</span>
+              <span>Ответ</span>
             </strong>
             <span>
-              <span class="lang-ru">Обычно в течение нескольких часов</span>
-              <span class="lang-en" style="display:none">Usually within a few hours</span>
+              <span>Обычно в течение нескольких часов</span>
             </span>
           </div>
         </div>
@@ -1452,12 +1314,10 @@
           <div class="contact-item-icon">📋</div>
           <div>
             <strong>
-              <span class="lang-ru">Первый шаг</span>
-              <span class="lang-en" style="display:none">First step</span>
+              <span>Первый шаг</span>
             </strong>
-            <span>
-              <span class="lang-ru">Бесплатный созвон 20-30 минут</span>
-              <span class="lang-en" style="display:none">Free 20-30 minute call</span>
+            <span class="gold-text">
+              <span>Бесплатный созвон 20-30 минут</span>
             </span>
           </div>
         </div>
@@ -1465,10 +1325,9 @@
           <div class="contact-item-icon">💰</div>
           <div>
             <strong>
-              <span class="lang-ru">Оплата</span>
-              <span class="lang-en" style="display:none">Payment</span>
+              <span>Оплата</span>
             </strong>
-            <span>PayPal · Crypto · UA card</span>
+            <span>PayPal · Криптовалюта · Карта Украины</span>
           </div>
         </div>
       </div>
@@ -1478,32 +1337,11 @@
   <footer>
     <p>© 2026 AppSabio · Артём</p>
     <p style="color: var(--muted); font-size: 0.78rem;">
-      <span class="lang-ru">AppSheet разработка · No-code автоматизация</span>
-      <span class="lang-en" style="display:none">AppSheet development · No-code automation</span>
+      <span>AppSheet разработка · No-code автоматизация</span>
     </p>
   </footer>
 
   <script>
-    // LANG SWITCH
-    function setLang(lang) {
-      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-      document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
-
-      document.querySelectorAll('.lang-ru').forEach(el => {
-        el.style.display = lang === 'ru' ? '' : 'none';
-      });
-      document.querySelectorAll('.lang-en').forEach(el => {
-        el.style.display = lang === 'en' ? '' : 'none';
-      });
-
-      // Nav links
-      document.querySelectorAll('.nav-links a').forEach(a => {
-        if (lang === 'ru') a.textContent = a.dataset.ru;
-        else a.textContent = a.dataset['en-text'] || a.textContent;
-      });
-
-      document.documentElement.lang = lang;
-    }
 
     // SCROLL ANIMATIONS
     const observer = new IntersectionObserver((entries) => {
